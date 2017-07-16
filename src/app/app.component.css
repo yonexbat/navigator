@@ -1,0 +1,43 @@
+.navigator {
+    background: #bcbcb7;    
+}
+
+.navigatorheader {
+    padding: 10px;
+    background: #ffeb0f;
+}
+
+.navigatorkategorien {
+    background: #967f67;
+    width: 200px;
+    float: left;
+}
+
+.navigatorkategorie {
+    height: 200px;
+    text-align: center;
+    border: 1px; 
+    border-style: solid;
+    border-color: black;
+    margin: 1px;
+}
+
+.navigatoraspect
+{
+    
+}
+
+.navigatorthemenfelder {
+    float: left;
+    background: #bcbcb7;
+    width: 0px;
+}
+
+.navigatorthemenfeld
+{
+
+}
+
+.navigatorcontent {
+    background: white;    
+}
