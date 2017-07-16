@@ -1,9 +1,6 @@
  <div class="navigatorkategorien">
 
-  <app-kategorie></app-kategorie>
-  <app-kategorie></app-kategorie>
-  <app-kategorie></app-kategorie>
-  <app-kategorie></app-kategorie>
-      
 
-  </div>
+  <app-kategorie *ngFor="let kategorie of kategorien" [kategorie]="kategorie"></app-kategorie>
+
+</div>

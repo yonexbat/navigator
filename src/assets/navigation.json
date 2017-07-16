@@ -1,0 +1,16 @@
+{
+    "kategorien" : [
+        {
+            "name" : "Projekte"
+        },
+        {
+             "name" : "Finanzen"       
+        },
+        {
+             "name" : "Verkauf"       
+        },
+        {
+            "name" : "Claude"    
+        }  
+    ]
+}

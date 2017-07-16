@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,11 +13,12 @@ import { KategorieComponent } from './kategorie/kategorie.component';
     AppComponent,
     ThemenfelderComponent,
     KategorienComponent,
-    KategorieComponent
+    KategorieComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NavigatorDataService} from '../navigator-data.service'
+import {Kategorie} from '../model/Kategorie';
+import {Navigator} from '../model/Navigator';
 
 @Component({
   selector: 'app-kategorien',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KategorienComponent implements OnInit {
 
-  constructor() { }
+  private kategorien : Kategorie[];
+
+  constructor(private navigatorDataService : NavigatorDataService) {
+   }
 
   ngOnInit() {
+    this.navigatorDataService.getIndex().then((navigator : Navigator) => 
+      this.kategorien = navigator.kategorien);
+      
   }
 
 }

@@ -1,7 +1,7 @@
 .navigatorthemenfelder {
     float: left;
     background: #bcbcb7;
-    width: 300px;
+    overflow: hidden;
 }
 
 .navigatorthemenfeld
