@@ -32,10 +32,10 @@ export class KategorieComponent implements OnInit, OnDestroy {
 
   clicked() : void
   {    
-    this.navigationService.selectCategory("meine kategorie 2");
+    this.navigationService.selectCategory(this.kategorie);
   }
 
-  kategorieSelected(kategorie: string){
+  kategorieSelected(kategorie: Kategorie){
   }
 
 }

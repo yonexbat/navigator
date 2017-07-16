@@ -1,12 +1,6 @@
  <!-- Themenfelder -->
 <div class="navigatorthemenfelder" [@heroState]='state'>
-  <div class="navigatorthemenfeld">
-    Themenfeld 1
-  </div>
-    <div class="navigatorthemenfeld">
-    Themenfeld 2
-  </div>
-    <div class="navigatorthemenfeld">
-    Themenfeld 3
-  </div>
+
+  <app-themenfeld *ngFor="let themenfeld of themenfelder | async" [themenfeld]="themenfeld"></app-themenfeld>
+
 </div>

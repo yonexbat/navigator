@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemenfelderComponent } from './themenfelder/themenfelder.component';
 import { KategorienComponent } from './kategorien/kategorien.component';
 import { KategorieComponent } from './kategorie/kategorie.component';
+import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { KategorieComponent } from './kategorie/kategorie.component';
     ThemenfelderComponent,
     KategorienComponent,
     KategorieComponent,
+    ThemenfeldComponent,
   ],
   imports: [
     BrowserModule,

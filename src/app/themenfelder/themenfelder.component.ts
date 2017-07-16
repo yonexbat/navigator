@@ -1,9 +1,16 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { NavigationServiceService } from '../navigation-service.service';
 import { Subscription }   from 'rxjs/Subscription';
+import { Observable }        from 'rxjs/Observable';
+import { Subject }           from 'rxjs/Subject';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {trigger, state, style, animate, transition} from '@angular/animations';
+import 'rxjs/add/observable/of';
+
+import { NavigationServiceService } from '../navigation-service.service';
+import {Kategorie} from '../model/Kategorie';
+import {Themenfeld} from '../model/Themenfeld';
+
 
 @Component({
   selector: 'app-themenfelder',
@@ -30,17 +37,20 @@ export class ThemenfelderComponent implements OnInit, OnDestroy {
 
   state: string = 'inactive';
 
+  themenfelder: Subject<Themenfeld[]> = new Subject<Themenfeld[]>();
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   constructor(private navigationService: NavigationServiceService) {
-    this.subscription = navigationService.selectedKategoryObs.subscribe((kategorie : string) => this.kategorieChanged(kategorie));
+    this.subscription = navigationService.selectedKategoryObs.subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
   }
 
-  private kategorieChanged(kategorie: string)
+  private kategorieChanged(kategorie: Kategorie)
   {
     this.state = (this.state === 'inactive' ? 'active' : 'inactive');
+    this.themenfelder.next(kategorie.themenfelder);
   }
 
   ngOnInit() {

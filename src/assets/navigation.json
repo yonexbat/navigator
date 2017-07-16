@@ -1,16 +1,36 @@
 {
     "kategorien" : [
         {
-            "name" : "Projekte"
+            "name" : "Projekte",
+            "themenfelder" : [
+                {"name" : "Projet1"},
+                {"name" : "Projet2"},
+                {"name" : "Projet3"}
+            ]
         },
         {
-             "name" : "Finanzen"       
+             "name" : "Finanzen", 
+             "themenfelder" : [
+                {"name" : "Finanzen1"},
+                {"name" : "Finanzen2"},
+                {"name" : "Finanzen3"}
+            ]    
         },
         {
-             "name" : "Verkauf"       
+             "name" : "Verkauf",
+              "themenfelder" : [
+                {"name" : "Verkauf1"},
+                {"name" : "Verkauf2"},
+                {"name" : "Verkauf3"}
+            ]           
         },
         {
-            "name" : "Claude"    
+            "name" : "Claude",
+             "themenfelder" : [
+                {"name" : "Claude1"},
+                {"name" : "Claude2"},
+                {"name" : "Claude3"}
+            ]    
         }  
     ]
 }
