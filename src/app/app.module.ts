@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ThemenfelderComponent } from './themenfelder/themenfelder.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ThemenfelderComponent
   ],
   imports: [
-    BrowserModule,
     BrowserModule,
     BrowserAnimationsModule
   ],
