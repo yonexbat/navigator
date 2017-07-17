@@ -9,6 +9,7 @@ import { KategorienComponent } from './kategorien/kategorien.component';
 import { KategorieComponent } from './kategorie/kategorie.component';
 import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
 import { ContentComponent } from './content/content.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ContentComponent } from './content/content.component';
     KategorieComponent,
     ThemenfeldComponent,
     ContentComponent,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,3 @@
  <div class="navigatorcontent">
-    <div [innerHtml]="contentHtml"></div>
+    <div [innerHtml]="contentHtml | safeHtml"></div>
   </div>
