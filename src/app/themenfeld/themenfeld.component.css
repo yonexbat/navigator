@@ -1,4 +1,8 @@
 .navigatorthemenfeld
 {
+    white-space: nowrap;
+}
 
+.navigatorthemenfeld:hover { 
+    background-color: yellow;
 }
