@@ -9,6 +9,8 @@ export class NavigatorDataService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private url = '/assets/navigation.json';  // URL to web api
 
+  private conenturl = '/assets/page';
+
 
   constructor(private http: Http) { }
 
@@ -20,6 +22,14 @@ export class NavigatorDataService {
                  return navigator;
                 })
                .catch(this.handleError);
+  }
+
+  public getConent(page: number) : Promise<string> {
+    let url = this.conenturl + page + ".html";
+    return this.http.get(url)
+        .toPromise()
+        .then(response => response.text())
+        .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

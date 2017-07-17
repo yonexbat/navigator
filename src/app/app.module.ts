@@ -8,6 +8,7 @@ import { ThemenfelderComponent } from './themenfelder/themenfelder.component';
 import { KategorienComponent } from './kategorien/kategorien.component';
 import { KategorieComponent } from './kategorie/kategorie.component';
 import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
     KategorienComponent,
     KategorieComponent,
     ThemenfeldComponent,
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
