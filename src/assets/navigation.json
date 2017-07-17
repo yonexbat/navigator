@@ -3,33 +3,35 @@
         {
             "name" : "Projekte",
             "themenfelder" : [
-                {"name" : "Projet1"},
-                {"name" : "Projet2"},
-                {"name" : "Projet3"}
+                {"name" : "Projet1", "id" : 1},
+                {"name" : "Projet2", "id" : 2},
+                {"name" : "Projet3", "id" : 1},
+                {"name" : "Navigator Projekt", "id" : 2},
+                {"name" : "Not Navigator Projekt", "id" : 1}
             ]
         },
         {
              "name" : "Finanzen", 
              "themenfelder" : [
-                {"name" : "Finanzen1"},
-                {"name" : "Finanzen2"},
-                {"name" : "Finanzen3"}
+                {"name" : "Finanzen1", "id" : 2},
+                {"name" : "Finanzen2", "id" : 1},
+                {"name" : "Finanzen3", "id" : 2}
             ]    
         },
         {
              "name" : "Verkauf",
               "themenfelder" : [
-                {"name" : "Verkauf1"},
-                {"name" : "Verkauf2"},
-                {"name" : "Verkauf3"}
+                {"name" : "Verkauf1", "id" : 1},
+                {"name" : "Verkauf2", "id" : 2},
+                {"name" : "Verkauf3", "id" : 1}
             ]           
         },
         {
             "name" : "Claude",
              "themenfelder" : [
-                {"name" : "Claude1"},
-                {"name" : "Claude2"},
-                {"name" : "Claude3"}
+                {"name" : "Claude1", "id" : 2},
+                {"name" : "Claude2", "id" : 1},
+                {"name" : "Claude3", "id" : 2}
             ]    
         }  
     ]

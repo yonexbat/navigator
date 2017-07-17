@@ -6,6 +6,7 @@ import { Subject }           from 'rxjs/Subject';
 import { NavigationServiceService } from '../navigation-service.service';
 import { NavigatorDataService  } from '../navigator-data.service';
 import {Kategorie} from '../model/Kategorie';
+import {Themenfeld} from '../model/Themenfeld';
 
 @Component({
   selector: 'app-content',
@@ -15,10 +16,13 @@ import {Kategorie} from '../model/Kategorie';
 export class ContentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptionKategorie.unsubscribe();
+    this.subscriptionThemenfeld.unsubscribe();
   }
 
-  private subscription: Subscription;
+  private subscriptionKategorie: Subscription;
+
+  private subscriptionThemenfeld: Subscription;
 
   public contentHtml: string = "my cont";
 
@@ -26,8 +30,11 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   constructor(private navigationService: NavigationServiceService, 
     private conentService: NavigatorDataService) { 
-    this.subscription = navigationService.selectedKategoryObs
+    this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+
+      this.subscriptionKategorie = navigationService.selectedThemenfeldBs
+        .subscribe((themenfeld) => {this.themenfeldChanged(themenfeld)});
   }
 
   ngOnInit() {
@@ -37,15 +44,13 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   private kategorieChanged(kategorie: Kategorie)
   {
-    
-    this.conentService.getConent(this.counter)
+        
+  }
+
+  private themenfeldChanged(themenfeld: Themenfeld)
+  {
+       this.conentService.getConent(themenfeld.id)
     .then((htmlString : string) => {this.setContent(htmlString);})
-   
-    this.counter++;
-    if(this.counter >= 3)
-    {
-      this.counter = 1;    
-    }
   }
 
   private  setContent(htmlString: string) : void
