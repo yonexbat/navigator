@@ -1,7 +1,7 @@
 {
     "kategorien" : [
         {
-            "name" : "Projekte",
+            "name" : "Projekte",            
             "themenfelder" : [
                 {"name" : "Projet1", "id" : 1},
                 {"name" : "Projet2", "id" : 2},
@@ -12,6 +12,7 @@
         },
         {
              "name" : "Finanzen", 
+             "isnew": true,
              "themenfelder" : [
                 {"name" : "Finanzen1", "id" : 2},
                 {"name" : "Finanzen2", "id" : 1},
@@ -28,7 +29,8 @@
         },
         {
             "name" : "Claude",
-             "themenfelder" : [
+            "isnew": true,
+            "themenfelder" : [
                 {"name" : "Claude1", "id" : 2},
                 {"name" : "Claude2", "id" : 1},
                 {"name" : "Claude3", "id" : 2}
