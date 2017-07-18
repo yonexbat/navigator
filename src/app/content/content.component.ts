@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription }   from 'rxjs/Subscription';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { NavigationServiceService } from '../navigation-service.service';
 import { NavigatorDataService  } from '../navigator-data.service';
@@ -29,17 +30,32 @@ export class ContentComponent implements OnInit, OnDestroy {
   private counter: number = 1;
 
   constructor(private navigationService: NavigationServiceService, 
-    private conentService: NavigatorDataService) { 
-    this.subscriptionKategorie = navigationService.selectedKategoryObs
+    private conentService: NavigatorDataService,  private activeRoute: ActivatedRoute) { 
+
+      this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
         .subscribe((themenfeld) => {this.themenfeldChanged(themenfeld)});
+
+      this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
+        let id = params.get("id"); 
+        this.handleRouteChanged(+id);
+      }
+    )
   }
 
   ngOnInit() {
   }
 
+  private handleRouteChanged(id: number)
+  {
+    if(id > 0)
+    {
+      this.conentService.getConent(id)
+      .then((htmlString : string) => {this.setContent(htmlString);})
+     }
+  }
 
 
   private kategorieChanged(kategorie: Kategorie)
@@ -49,8 +65,7 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   private themenfeldChanged(themenfeld: Themenfeld)
   {
-       this.conentService.getConent(themenfeld.id)
-    .then((htmlString : string) => {this.setContent(htmlString);})
+   
   }
 
   private  setContent(htmlString: string) : void
