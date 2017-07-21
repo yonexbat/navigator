@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule }    from '@angular/http';
-import { RouterModule }   from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +15,7 @@ import {AppRoutingModule } from './app-routing/app-routing.module';
 import { ContentHostDirective } from './content-host.directive';
 import { ContainerComponent } from './container/container.component';
 import { BoxesComponent } from './boxes/boxes.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BoxesComponent } from './boxes/boxes.component';
     ContentHostDirective,
     ContainerComponent,
     BoxesComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ import { BoxesComponent } from './boxes/boxes.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ContainerComponent, BoxesComponent]
+  entryComponents: [ContainerComponent, BoxesComponent, TableComponent]
 })
 export class AppModule { }

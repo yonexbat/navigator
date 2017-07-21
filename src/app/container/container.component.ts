@@ -6,6 +6,7 @@ import {NavigatorContainer} from '../model/NavigatorContainer';
 import {Boxes} from '../model/Boxes';
 import {ContentHostDirective} from '../content-host.directive';
 import {BoxesComponent} from '../boxes/boxes.component';
+import {TableComponent} from '../table/table.component';
 
 
 @Component({
@@ -24,17 +25,20 @@ export class ContainerComponent implements OnInit, IInitializePage {
   initializePage(pageContext: PageContext) {
 
     this.pageContext = pageContext;
-    let container : NavigatorContainer = <NavigatorContainer>pageContext.lastDataItem();     
+    const container: NavigatorContainer = <NavigatorContainer>pageContext.lastDataItem();     
     this.title = container.title;
 
-    let controltype = container.controltype;
-    switch(controltype)
-    {
-      case "boxes":
+    const controltype = container.controltype;
+
+    switch (controltype) {
+      case 'boxes':
         this.initBoxes(container.controldata);
-        break;  
+        break;
+      case 'table':
+        this.initTable(container.controldata);
+        break;
     }
- 
+
   }
 
 
@@ -44,19 +48,30 @@ export class ContainerComponent implements OnInit, IInitializePage {
   ngOnInit() {
   }
 
-  private initBoxes(controldata: any) 
-  {
-      let boxes: Boxes = <Boxes> controldata;
+  private initBoxes(controldata: any) {
+      const boxes: Boxes = <Boxes> controldata;
       this.pageContext.data.push(boxes);
-      let elementFactory = this.pageContext.componentFactoryResolver.resolveComponentFactory(BoxesComponent);
+      const elementFactory = this.pageContext.componentFactoryResolver.resolveComponentFactory(BoxesComponent);
 
 
-      let viewContainerRef = this.containerHost.viewContainerRef;
+      const viewContainerRef = this.containerHost.viewContainerRef;
       viewContainerRef.clear();
-      let componentRef = viewContainerRef.createComponent(elementFactory); 
+      const componentRef = viewContainerRef.createComponent(elementFactory); 
       (<IInitializePage>componentRef.instance).initializePage(this.pageContext);
       this.pageContext.data.pop();
 
+  }
+
+  private initTable(controldata: any)  {
+
+      this.pageContext.data.push(controldata);
+      const elementFactory = this.pageContext.componentFactoryResolver.resolveComponentFactory(TableComponent);
+
+      const viewContainerRef = this.containerHost.viewContainerRef;
+      viewContainerRef.clear();
+      const componentRef = viewContainerRef.createComponent(elementFactory); 
+      (<IInitializePage>componentRef.instance).initializePage(this.pageContext);
+      this.pageContext.data.pop();
   }
 
 }

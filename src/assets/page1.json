@@ -16,7 +16,28 @@
         {
             "id" : "101",
             "title" : "Only Hello",
-            "controltype" : "table"
+            "controltype" : "table",
+            "controldata" : {
+                "columns" : [
+                    {"title" : "Projektname"},
+                    {"title" : "PT"}
+                ],
+                "rows" : [
+                    {
+                        "cells" : [
+                            {"value" : "INSIEME"},
+                            {"value" : "1211"}
+                        ]
+                    },
+                     {
+                        "cells" : [
+                            {"value" : "Navigator"},
+                            {"value" : "301"}
+                        ]
+                    }
+                ]
+                
+            }
         },
         {
             "id" : "102",

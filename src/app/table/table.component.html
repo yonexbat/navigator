@@ -1,0 +1,16 @@
+<div>
+  <table>
+    <tr>
+      <th *ngFor="let column of columns" >
+          {{column.title}}
+      </th>
+    </tr>
+
+    <tr *ngFor="let row of rows">
+      <td *ngFor="let cell of row.cells">
+        {{cell.value}}
+      </td>
+    </tr>
+
+  </table>
+</div>
