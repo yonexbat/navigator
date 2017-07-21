@@ -6,7 +6,7 @@ import { ZoomComponent } from '../zoom/zoom.component';
 
 const routes: Routes = [
   { path: 'detail/:id', component:  ContentComponent},
-  { path: 'zoom', component: ZoomComponent},
+  { path: 'zoom/:id/:elementid', component: ZoomComponent},
 ];
 
 @NgModule({
