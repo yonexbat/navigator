@@ -1,5 +1,5 @@
-import {Container} from './Container'
+import {NavigatorContainer} from './NavigatorContainer';
 
 export class Page {
-    public containers : Container[];
+    public containers: NavigatorContainer[];
 }

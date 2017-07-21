@@ -14,6 +14,7 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import {AppRoutingModule } from './app-routing/app-routing.module';
 import { ContentHostDirective } from './content-host.directive';
 import { ContainerComponent } from './container/container.component';
+import { BoxesComponent } from './boxes/boxes.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContainerComponent } from './container/container.component';
     SafeHtmlPipe,
     ContentHostDirective,
     ContainerComponent,
+    BoxesComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,6 @@ import { ContainerComponent } from './container/container.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ContainerComponent]
+  entryComponents: [ContainerComponent, BoxesComponent]
 })
 export class AppModule { }

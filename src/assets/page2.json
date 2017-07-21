@@ -1,13 +1,19 @@
 {
     "containers" : [
         {
-            "title" : "Jenny"    
+            "id" : "200",
+            "title" : "Jenny",
+            "controltype" : "none"     
         },
         {
-            "title" : "Guappa"
+            "id" : "201",
+            "title" : "Guappa",
+            "controltype" : "none"   
         },
         {
-            "title" : "Bastiane"   
+            "id" : "202",
+            "title" : "Bastiane",
+            "controltype" : "none"   
         }
 
     ]

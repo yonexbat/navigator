@@ -86,6 +86,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     viewContainerRef.clear();
 
     let pageContex = new PageContext(); 
+    pageContex.componentFactoryResolver = this.componentFactoryResolver;
     pageContex.data.push(page);   
 
     page.containers.forEach(element => {

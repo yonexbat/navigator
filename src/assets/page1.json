@@ -1,13 +1,27 @@
 {
     "containers" : [
         {
-            "title" : "Hello World"    
+            "id" : "100",
+            "title" : "Hello World",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "101"},
+                    {"value" : "102"},
+                    {"value" : "106"},
+                    {"value" : "107"}     
+                ]
+            }
         },
         {
-            "title" : "Only Hello"
+            "id" : "101",
+            "title" : "Only Hello",
+            "controltype" : "table"
         },
         {
-            "title" : "Only World"   
+            "id" : "102",
+            "title" : "Only World",
+            "controltype" : "none"   
         }
 
     ]

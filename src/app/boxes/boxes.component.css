@@ -1,0 +1,7 @@
+.navigatorbox {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    margin: 5px;
+    background: yellowgreen;
+}
