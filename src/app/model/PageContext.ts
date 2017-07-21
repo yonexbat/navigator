@@ -1,4 +1,4 @@
-import { ComponentFactoryResolver } from '@angular/core';
+import { ComponentFactoryResolver, Type } from '@angular/core';
 import {NavigatorContainer} from '../model/NavigatorContainer';
 import {Boxes} from '../model/Boxes';
 import {Page} from '../model/Page';
@@ -6,6 +6,7 @@ import {ContentHostDirective} from '../content-host.directive';
 import {IInitializePage} from '../model/IInitializePage';
 import {BoxesComponent} from '../boxes/boxes.component';
 import {TableComponent} from '../table/table.component';
+
 
 
 export class PageContext {
@@ -16,9 +17,7 @@ export class PageContext {
     
     public lastDataItem(): any {
         return this.data[this.data.length - 1];
-    }
-
-    
+    }    
 
     public elementId: number;
 
@@ -30,37 +29,25 @@ export class PageContext {
         const controltype = navigationContainer.controltype;
           switch (controltype) {
             case 'boxes':
-                this.initBoxes(navigationContainer.controldata, hostDirecive);
+                this.initializeControl(navigationContainer.controldata, hostDirecive, BoxesComponent);
                 break;
             case 'table':
-                this.initTable(navigationContainer.controldata, hostDirecive);
+                this.initializeControl(navigationContainer.controldata, hostDirecive, TableComponent);
                 break;
         }            
     }
 
-    private initBoxes(controldata: any, hostDirecive: ContentHostDirective) {
-      const boxes: Boxes = <Boxes> controldata;
-      this.data.push(boxes);
-      const elementFactory = this.componentFactoryResolver.resolveComponentFactory(BoxesComponent);
+    private initializeControl(controldata: any, hostDirecive: ContentHostDirective, type:  any)
+    {
+         const elementFactory = this.componentFactoryResolver.resolveComponentFactory(type); 
+         this.data.push(controldata); 
 
+         const viewContainerRef = hostDirecive.viewContainerRef;
+         viewContainerRef.clear();
+            const componentRef = viewContainerRef.createComponent(elementFactory); 
+        (<IInitializePage>componentRef.instance).initializePage(this);
 
-      const viewContainerRef = hostDirecive.viewContainerRef;
-      viewContainerRef.clear();
-      const componentRef = viewContainerRef.createComponent(elementFactory); 
-      (<IInitializePage>componentRef.instance).initializePage(this);
-      this.data.pop();
+         this.data.pop();
 
-  }
-
-  private initTable(controldata: any, hostDirecive: ContentHostDirective)  {
-
-      this.data.push(controldata);
-      const elementFactory = this.componentFactoryResolver.resolveComponentFactory(TableComponent);
-
-      const viewContainerRef = hostDirecive.viewContainerRef;
-      viewContainerRef.clear();
-      const componentRef = viewContainerRef.createComponent(elementFactory); 
-      (<IInitializePage>componentRef.instance).initializePage(this);
-      this.data.pop();
-  }
+    }
 }
