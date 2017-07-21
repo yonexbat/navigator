@@ -33,24 +33,39 @@ import {Themenfeld} from '../model/Themenfeld';
 })
 export class ThemenfelderComponent implements OnInit, OnDestroy {
   
-  private subscription: Subscription;
+  private subscriptionKategorie: Subscription;
+
+  private subscriptionThemenfeld: Subscription;
 
   state: string = 'inactive';
 
   themenfelder: Subject<Themenfeld[]> = new Subject<Themenfeld[]>();
-
+  
+  
+  
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptionKategorie.unsubscribe();
+    this.subscriptionThemenfeld.unsubscribe();
   }
 
   constructor(private navigationService: NavigationServiceService) {
-    this.subscription = navigationService.selectedKategoryObs.subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+
+    this.subscriptionKategorie = navigationService.selectedKategoryObs
+      .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+
+    this.subscriptionThemenfeld = navigationService.selectedThemenfeldBs
+      .subscribe((themenfeld : Themenfeld) => this.themenfeldChanged(themenfeld));
   }
 
   private kategorieChanged(kategorie: Kategorie)
   {
     this.state = (this.state === 'inactive' ? 'active' : 'inactive');
     this.themenfelder.next(kategorie.themenfelder);
+  }
+
+  private themenfeldChanged(themenfeld: Themenfeld)
+  {
+    this.state = "inactive";
   }
 
   ngOnInit() {
