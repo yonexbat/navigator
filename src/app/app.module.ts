@@ -16,6 +16,7 @@ import { ContentHostDirective } from './content-host.directive';
 import { ContainerComponent } from './container/container.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { TableComponent } from './table/table.component';
+import { ZoomComponent } from './zoom/zoom.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TableComponent } from './table/table.component';
     ContainerComponent,
     BoxesComponent,
     TableComponent,
+    ZoomComponent,
   ],
   imports: [
     BrowserModule,
