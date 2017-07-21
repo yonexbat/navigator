@@ -22,8 +22,14 @@ import {IInitializePage} from '../model/IInitializePage';
 export class ContentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
-    this.subscriptionKategorie.unsubscribe();
-    this.subscriptionThemenfeld.unsubscribe();
+    if(this.subscriptionKategorie != null)
+    {
+      this.subscriptionKategorie.unsubscribe();
+    }
+    if(this.subscriptionThemenfeld != null)
+    {
+      this.subscriptionThemenfeld.unsubscribe();
+    }
   }
 
   private subscriptionKategorie: Subscription;
@@ -87,6 +93,7 @@ export class ContentComponent implements OnInit, OnDestroy {
 
     let pageContex = new PageContext(); 
     pageContex.componentFactoryResolver = this.componentFactoryResolver;
+    pageContex.pageId = page.pageId;
     pageContex.data.push(page);   
 
     page.containers.forEach(element => {

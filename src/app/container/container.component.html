@@ -2,6 +2,7 @@
 <div class="navigatorcontainer">
   <div class="navigatorcontainertitle">
     {{title}}
+    <a [routerLink]="['/zoom', pageId, elementId]">zoom</a>
   </div>
   <div class="navigatorcontainercontent">
     <ng-template appContentHost></ng-template>

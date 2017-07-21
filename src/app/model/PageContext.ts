@@ -1,6 +1,7 @@
 import { ComponentFactoryResolver } from '@angular/core';
 import {NavigatorContainer} from '../model/NavigatorContainer';
 import {Boxes} from '../model/Boxes';
+import {Page} from '../model/Page';
 import {ContentHostDirective} from '../content-host.directive';
 import {IInitializePage} from '../model/IInitializePage';
 import {BoxesComponent} from '../boxes/boxes.component';
@@ -17,9 +18,16 @@ export class PageContext {
         return this.data[this.data.length - 1];
     }
 
+    
+
+    public elementId: number;
+
+    public pageId: number;
+
     public createControl(navigationContainer: NavigatorContainer, hostDirecive: ContentHostDirective)
     {
-         const controltype = navigationContainer.controltype;
+        this.elementId = navigationContainer.id;
+        const controltype = navigationContainer.controltype;
           switch (controltype) {
             case 'boxes':
                 this.initBoxes(navigationContainer.controldata, hostDirecive);
