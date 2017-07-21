@@ -12,6 +12,8 @@ import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
 import { ContentComponent } from './content/content.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import {AppRoutingModule } from './app-routing/app-routing.module';
+import { ContentHostDirective } from './content-host.directive';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {AppRoutingModule } from './app-routing/app-routing.module';
     ThemenfeldComponent,
     ContentComponent,
     SafeHtmlPipe,
+    ContentHostDirective,
+    ContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,7 @@ import {AppRoutingModule } from './app-routing/app-routing.module';
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ContainerComponent]
 })
 export class AppModule { }

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import {Navigator} from './model/Navigator';
 import 'rxjs/add/operator/toPromise';
+
+import {Navigator} from './model/Navigator';
+import {Page} from './model/Page';
+
 
 @Injectable()
 export class NavigatorDataService {
@@ -30,6 +33,17 @@ export class NavigatorDataService {
         .toPromise()
         .then(response => response.text())
         .catch(this.handleError);
+  }
+
+  public getPage(page: number) : Promise<Page> {
+     let url = this.conenturl + page + ".json";
+      return this.http.get(url)
+               .toPromise()
+               .then(response => {
+                 let page = response.json() as Page;
+                 return page;
+                })
+               .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
