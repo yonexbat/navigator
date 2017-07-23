@@ -1,4 +1,5 @@
 .navigatorcontent {
     background: white;  
     margin-left: 150px;  
+    z-index: 0;
 }

@@ -17,6 +17,7 @@ import { ContainerComponent } from './container/container.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { TableComponent } from './table/table.component';
 import { ZoomComponent } from './zoom/zoom.component';
+import { PathComponent } from './path/path.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ZoomComponent } from './zoom/zoom.component';
     BoxesComponent,
     TableComponent,
     ZoomComponent,
+    PathComponent,
   ],
   imports: [
     BrowserModule,

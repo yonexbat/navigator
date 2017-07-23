@@ -10,9 +10,9 @@ import {Page} from './model/Page';
 export class NavigatorDataService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private url = '/assets/navigation.json';  // URL to web api
+  private url = './assets/navigation.json';  // URL to web api
 
-  private conenturl = '/assets/page';
+  private conenturl = './assets/page';
 
 
   constructor(private http: Http) { }

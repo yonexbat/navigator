@@ -10,7 +10,7 @@ import {Navigator} from '../model/Navigator';
 })
 export class KategorienComponent implements OnInit {
 
-  private kategorien : Kategorie[];
+  public kategorien : Kategorie[];
 
   constructor(private navigatorDataService : NavigatorDataService) {
    }

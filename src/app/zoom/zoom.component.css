@@ -5,6 +5,8 @@
 
 .navigatorzoomcontent {
     overflow: auto;
+    height: 800px;
+    margin: 30px;
 }
 
 .navigatorcontentinner {

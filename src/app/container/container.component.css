@@ -7,5 +7,17 @@
 
 .navigatorcontainertitle
 {
-    background-color: yellow;
+    background-color: #967f67;
+    padding: 10px;
+}
+
+
+.navigatorcontainercontent
+{
+    margin: 30px;
+}
+
+.navigatormag
+{
+    color: black;
 }

@@ -1,5 +1,7 @@
 .navigatorthemenfelder {
-    float: left;
+    position: absolute;
+    left: 150px;
     background: #bcbcb7;
     overflow: hidden;
+    z-index: 1;
 }

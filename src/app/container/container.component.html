@@ -1,11 +1,18 @@
 
 <div class="navigatorcontainer">
+
+  <!-- Titel -->
   <div class="navigatorcontainertitle">
     {{title}}
-    <a [routerLink]="['/zoom', pageId, elementId]">zoom</a>
+    <a [routerLink]="['/zoom', pageId, elementId]" class="navigatormag">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </a>
   </div>
+
+  <!-- content -->
   <div class="navigatorcontainercontent">
     <ng-template appContentHost></ng-template>
   </div>
+
 </div>
 
