@@ -43,11 +43,12 @@ export class ContentComponent implements OnInit, OnDestroy {
               private activeRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) { 
 
+      debugger;
       this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
-        .subscribe((themenfeld) => {this.themenfeldChanged(themenfeld)});
+        .subscribe((themenfeld: Themenfeld) => {this.themenfeldChanged(themenfeld)});
 
       this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
         let id = params.get("id"); 
