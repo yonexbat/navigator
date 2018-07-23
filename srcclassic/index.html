@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyAnna without angular</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        ondocumentready();
+    });
+
+    function ondocumentready(){
+        document.querySelector('#syncbutton')
+            .addEventListener('click', function() {
+                console.log('request sync');
+                navigator.serviceWorker.ready.then(function(reg) {
+                    return reg.sync.register('syncTest');
+                });
+           });                      
+    }
+    
+    window.addEventListener('online', function(){
+        console.log('I am online');
+    });
+
+    window.addEventListener('offline', function()
+    {
+        console.log('I am offline');
+    });
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.onmessage = function(event) {
+            debugger;
+            console.log('onmessage in client');
+        }
+        navigator.serviceWorker.register('./mybackgroundsync.js')
+        .catch(function(err) {
+            console.log('ServiceWorker failed to register. Are you visiting the HTTPS site?');
+            console.log(err);
+        });
+    }
+  
+    
+  </script>
+</head>
+<body>
+  <h1>MyAnna without angular</h1>
+  <button id="syncbutton">Sync</button>
+</body>
+</html>

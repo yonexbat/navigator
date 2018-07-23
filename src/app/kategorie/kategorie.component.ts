@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input  } from '@angular/core';
-import { Subscription }   from 'rxjs/Subscription';
+import { Subscription }   from 'rxjs';
 
 import {NavigationServiceService} from '../navigation-service.service';
 import {Kategorie} from '../model/Kategorie';
