@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { NavigatorDataService } from './navigator-data.service';
 
 describe('NavigatorDataService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [NavigatorDataService]
+      imports: [HttpClientTestingModule],
+      providers: [NavigatorDataService],
     });
   });
 
