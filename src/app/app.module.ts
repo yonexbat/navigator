@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,13 +12,14 @@ import { KategorieComponent } from './kategorie/kategorie.component';
 import { ThemenfeldComponent } from './themenfeld/themenfeld.component';
 import { ContentComponent } from './content/content.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
-import {AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ContentHostDirective } from './content-host.directive';
 import { ContainerComponent } from './container/container.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { TableComponent } from './table/table.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import { PathComponent } from './path/path.component';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +40,9 @@ import { PathComponent } from './path/path.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],

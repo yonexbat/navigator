@@ -2,6 +2,5 @@
 import {Kategorie} from './Kategorie';
 
 export class Navigator {
-    
-    public kategorien : Kategorie[];
+    public kategorien: Kategorie[];
 }

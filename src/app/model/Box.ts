@@ -1,3 +1,3 @@
 export class Box {
-    value: string
+    value: string;
 }
