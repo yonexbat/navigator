@@ -1,14 +1,38 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ThemenfelderComponent } from './themenfelder.component';
-
+import {ThemenfeldComponent} from '../themenfeld/themenfeld.component';
+import { NavigationServiceService } from '../navigation-service.service';
+import { NavigatorDataService} from '../navigator-data.service';
+import { Kategorie } from '../model/Kategorie';
+import { Themenfeld } from '../model/Themenfeld';
 describe('ThemenfelderComponent', () => {
   let component: ThemenfelderComponent;
   let fixture: ComponentFixture<ThemenfelderComponent>;
+  let subSpy1;
+  let subSpy2;
 
   beforeEach(async(() => {
+
+    const navigationServiceSpy = {
+      selectedKategoryObs: of(new Kategorie()),
+      selectedThemenfeldBs: of(new Themenfeld()),
+    };
+    subSpy1 = spyOn(navigationServiceSpy.selectedKategoryObs, 'subscribe');
+    subSpy2 = spyOn(navigationServiceSpy.selectedThemenfeldBs, 'subscribe');
+
+    const navigatorDataserviceSpy = jasmine.createSpyObj('NavigatorDataService', ['ba']);
+
+
     TestBed.configureTestingModule({
-      declarations: [ ThemenfelderComponent ]
+      imports: [BrowserAnimationsModule],
+      declarations: [ ThemenfelderComponent, ThemenfeldComponent ],
+      providers: [
+        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigatorDataService, useValue: navigatorDataserviceSpy},
+      ],
     })
     .compileComponents();
   }));
