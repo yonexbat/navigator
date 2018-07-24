@@ -25,7 +25,9 @@
     {
     "name": "webapi",
       "urls": [
-        "/index.json"
+        "/api/navigation.json",
+        "/api/page1.json",
+        "/api/page2.json"
       ],
       "cacheConfig": {
         "strategy": "performance",

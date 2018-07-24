@@ -8,9 +8,9 @@ import {Page} from './model/Page';
 @Injectable()
 export class NavigatorDataService {
 
-  private url = './assets/navigation.json';  // URL to web api
+  private url = './api/navigation.json';  // URL to web api
 
-  private conenturl = './assets/page';
+  private content = './api/page';
 
 
   constructor(private http: HttpClient) { }
@@ -22,7 +22,7 @@ export class NavigatorDataService {
   }
 
   public getPage(page: number): Promise<Page> {
-      const url = this.conenturl + page + '.json';
+      const url = `${this.content}${page}.json`;
       return this.http.get<Page>(url)
                .toPromise()
                .catch(this.handleError);
