@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input  } from '@angular/core';
-import { Subscription }   from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import {NavigationServiceService} from '../navigation-service.service';
 import {Kategorie} from '../model/Kategorie';
@@ -11,15 +11,13 @@ import {Kategorie} from '../model/Kategorie';
 })
 export class KategorieComponent implements OnInit, OnDestroy {
 
-  ngOnDestroy(): void {
-    this.kategorieSubscription.unsubscribe();
-  }
-
-  private kategorieSubscription : Subscription;
+  private kategorieSubscription: Subscription;
 
   @Input() public kategorie: Kategorie;
 
- 
+  ngOnDestroy(): void {
+    this.kategorieSubscription.unsubscribe();
+  }
 
   constructor(private navigationService: NavigationServiceService) {
     this.kategorieSubscription = navigationService.selectedKategoryObs.subscribe(
@@ -30,12 +28,11 @@ export class KategorieComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
-  clicked() : void
-  {    
+  clicked(): void {
     this.navigationService.selectCategory(this.kategorie);
   }
 
-  kategorieSelected(kategorie: Kategorie){
+  kategorieSelected(kategorie: Kategorie) {
   }
 
 }

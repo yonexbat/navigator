@@ -19,90 +19,81 @@ import {IInitializePage} from '../model/IInitializePage';
 })
 export class ContentComponent implements OnInit, OnDestroy {
 
-  ngOnDestroy(): void {
-    if(this.subscriptionKategorie != null)
-    {
-      this.subscriptionKategorie.unsubscribe();
-    }
-    if(this.subscriptionThemenfeld != null)
-    {
-      this.subscriptionThemenfeld.unsubscribe();
-    }
-  }
-
   private subscriptionKategorie: Subscription;
 
   private subscriptionThemenfeld: Subscription;
 
-  private counter: number = 1;
+  private counter = 1;
 
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
-  constructor(private navigationService: NavigationServiceService, 
-              private conentService: NavigatorDataService,  
-              private activeRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) { 
+  ngOnDestroy(): void {
+    if (this.subscriptionKategorie != null) {
+      this.subscriptionKategorie.unsubscribe();
+    }
+    if (this.subscriptionThemenfeld != null) {
+      this.subscriptionThemenfeld.unsubscribe();
+    }
+  }
 
-      debugger;
+  constructor(private navigationService: NavigationServiceService,
+              private conentService: NavigatorDataService,
+              private activeRoute: ActivatedRoute,
+              private componentFactoryResolver: ComponentFactoryResolver) {
+
       this.subscriptionKategorie = navigationService.selectedKategoryObs
-      .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+      .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
         .subscribe((themenfeld: Themenfeld) => {this.themenfeldChanged(themenfeld)});
 
       this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
-        let id = params.get("id"); 
+        const id = params.get('id');
         this.handleRouteChanged(+id);
       }
-    )
+    );
   }
 
   ngOnInit() {
   }
 
-  private handleRouteChanged(id: number)
-  {
-    if(id > 0)
-    {
+  private handleRouteChanged(id: number) {
+    if (id > 0) {
 
       this.conentService.getPage(id)
-      .then((page: Page) => {this.setPage(page);});
+      .then((page: Page) => {this.setPage(page); });
      }
   }
 
 
-  private kategorieChanged(kategorie: Kategorie)
-  {
-        
+  private kategorieChanged(kategorie: Kategorie) {
   }
 
-  private themenfeldChanged(themenfeld: Themenfeld)
-  {
-   
+  private themenfeldChanged(themenfeld: Themenfeld) {
+
   }
 
 
 
-  private setPage(page: Page) : void {
+  private setPage(page: Page): void {
 
-    let containerFactory = this.componentFactoryResolver.resolveComponentFactory(ContainerComponent);
+    const containerFactory = this.componentFactoryResolver.resolveComponentFactory(ContainerComponent);
 
-    let viewContainerRef = this.containerHost.viewContainerRef;
+    const viewContainerRef = this.containerHost.viewContainerRef;
     viewContainerRef.clear();
 
-    let pageContex = new PageContext(); 
+    const pageContex = new PageContext();
     pageContex.componentFactoryResolver = this.componentFactoryResolver;
     pageContex.pageId = page.pageId;
-    pageContex.data.push(page);   
+    pageContex.data.push(page);
 
     page.containers.forEach(element => {
-      
-      let componentRef = viewContainerRef.createComponent(containerFactory);  
+
+      const componentRef = viewContainerRef.createComponent(containerFactory);
       pageContex.data.push(element);
       (<IInitializePage>componentRef.instance).initializePage(pageContex);
       pageContex.data.pop();
-    });      
-    
+    });
   }
 
 

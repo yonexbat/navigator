@@ -17,9 +17,9 @@ describe('ContentComponent', () => {
 
   beforeEach(async(() => {
     const navigationServiceSpy = {
-      selectedKategoryObs: of(new Kategorie()),   
+      selectedKategoryObs: of(new Kategorie()),
       selectedThemenfeldBs: of(new Themenfeld()),
-    }
+    };
     subSpy1 = spyOn(navigationServiceSpy.selectedKategoryObs, 'subscribe');
     subSpy2 = spyOn(navigationServiceSpy.selectedThemenfeldBs, 'subscribe');
 

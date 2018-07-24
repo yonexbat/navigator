@@ -1,4 +1,4 @@
 <div class="navigatorkategorie" (click)="clicked()">
-  <img *ngIf="kategorie.isnew" src="./assets/newbanner.png" id="overlay"/>
-  {{kategorie.name}}
+  <img *ngIf="kategorie?.isnew" src="./assets/newbanner.png" id="overlay"/>
+  {{kategorie?.name}}
 </div>
