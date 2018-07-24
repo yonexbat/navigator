@@ -19,25 +19,23 @@ export class ZoomComponent implements OnInit {
 
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
-  constructor(private navigationService: NavigationServiceService, 
-              private conentService: NavigatorDataService,  
+  constructor(private navigationService: NavigationServiceService,
+              private conentService: NavigatorDataService,
               private activeRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) { 
+              private componentFactoryResolver: ComponentFactoryResolver) {
 
        this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
-        let id = params.get("id"); 
-        let elementId = params.get("elementid");
+        const id = params.get('id');
+        const elementId = params.get('elementid');
         this.handleRouteChanged(+id, +elementId);
-      });              
+      });
   }
 
-  private handleRouteChanged(id: number, elementId: number)
-  {
-    if(id > 0)
-    {
+  private handleRouteChanged(id: number, elementId: number) {
+    if (id > 0) {
 
       this.conentService.getPage(id)
-      .then((page: Page) => {this.setPage(page, elementId);});
+      .then((page: Page) => {this.setPage(page, elementId); });
      }
   }
 
@@ -49,24 +47,18 @@ export class ZoomComponent implements OnInit {
   }
 
 
-   private setPage(page: Page, elementId: number) : void {
-      let container: NavigatorContainer = this.getElementId(page, elementId);
-     
+   private setPage(page: Page, elementId: number): void {
+      const container: NavigatorContainer = this.getElementId(page, elementId);
 
-      let pageContex = new PageContext(); 
+      const pageContex = new PageContext();
       pageContex.componentFactoryResolver = this.componentFactoryResolver;
-      
       pageContex.createControl(container, this.containerHost);
-      
    }
 
-   private getElementId(page: Page, elementId: number)  : NavigatorContainer 
-   {
-    for(let i=0; i<page.containers.length; i++)
-    {
-      let container = page.containers[i];
-      if(container.id == elementId)
-      {
+   private getElementId(page: Page, elementId: number): NavigatorContainer {
+    for (let i = 0; i < page.containers.length; i++) {
+      const container = page.containers[i];
+      if (container.id === elementId) {
         return container;
       }
     }
