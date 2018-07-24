@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MyAnna": {
+    "Navigator": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -22,7 +22,8 @@
               "src/favicon.ico",
               "src/index.json",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/api"
             ],
             "styles": [
               "src/styles.css"
@@ -53,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MyAnna:build"
+            "browserTarget": "Navigator:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "MyAnna:build:production"
+              "browserTarget": "Navigator:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MyAnna:build"
+            "browserTarget": "Navigator:build"
           }
         },
         "test": {
@@ -99,7 +100,7 @@
         }
       }
     },
-    "MyAnna-e2e": {
+    "Navigator-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "MyAnna:serve"
+            "devServerTarget": "Navigator:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "MyAnna:serve:production"
+              "devServerTarget": "Navigator:serve:production"
             }
           }
         },
@@ -127,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "MyAnna"
+  "defaultProject": "Navigator"
 }

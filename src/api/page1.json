@@ -1,0 +1,50 @@
+{
+    "pageId" : 1,
+    "containers" : [
+        {
+            "id" : "100",
+            "title" : "Hello World",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "101"},
+                    {"value" : "102"},
+                    {"value" : "106"},
+                    {"value" : "107"}     
+                ]
+            }
+        },
+        {
+            "id" : "101",
+            "title" : "Only Hello",
+            "controltype" : "table",
+            "controldata" : {
+                "columns" : [
+                    {"title" : "Projektname"},
+                    {"title" : "PT"}
+                ],
+                "rows" : [
+                    {
+                        "cells" : [
+                            {"value" : "INSIEME"},
+                            {"value" : "1211"}
+                        ]
+                    },
+                     {
+                        "cells" : [
+                            {"value" : "Navigator"},
+                            {"value" : "301"}
+                        ]
+                    }
+                ]
+                
+            }
+        },
+        {
+            "id" : "102",
+            "title" : "Only World",
+            "controltype" : "none"   
+        }
+
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "pageId" : 2,
+    "containers" : [
+        {
+            "id" : "200",
+            "title" : "Jenny",
+            "controltype" : "none"     
+        },
+        {
+            "id" : "201",
+            "title" : "Guappa",
+            "controltype" : "none"   
+        },
+        {
+            "id" : "202",
+            "title" : "Bastiane",
+            "controltype" : "none"   
+        }
+
+    ]
+}

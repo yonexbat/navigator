@@ -1,0 +1,40 @@
+{
+    "kategorien" : [
+        {
+            "name" : "Projekte",            
+            "themenfelder" : [
+                {"name" : "Projet1", "id" : 1},
+                {"name" : "Projet2", "id" : 2},
+                {"name" : "Projet3", "id" : 1},
+                {"name" : "Navigator Projekt", "id" : 2},
+                {"name" : "Not Navigator Projekt", "id" : 1}
+            ]
+        },
+        {
+             "name" : "Finanzen", 
+             "isnew": true,
+             "themenfelder" : [
+                {"name" : "Finanzen1", "id" : 2},
+                {"name" : "Finanzen2", "id" : 1},
+                {"name" : "Finanzen3", "id" : 2}
+            ]    
+        },
+        {
+             "name" : "Verkauf",
+              "themenfelder" : [
+                {"name" : "Verkauf1", "id" : 1},
+                {"name" : "Verkauf2", "id" : 2},
+                {"name" : "Verkauf3", "id" : 1}
+            ]           
+        },
+        {
+            "name" : "Claude",
+            "isnew": true,
+            "themenfelder" : [
+                {"name" : "Claude1", "id" : 2},
+                {"name" : "Claude2", "id" : 1},
+                {"name" : "Claude3", "id" : 2}
+            ]    
+        }  
+    ]
+}
