@@ -22,8 +22,8 @@ export class ThemenfeldComponent implements OnInit {
   }
 
   public clicked(): void {
-    this.navigationService.selectThemenfeld(this.themenfeld);  
-    this.router.navigate(["/detail", this.themenfeld.id]);  
+    this.navigationService.selectThemenfeld(this.themenfeld);
+    this.router.navigate(['/detail', this.themenfeld.id]);
   }
 
 }
