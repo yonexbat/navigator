@@ -36,11 +36,15 @@ export class ThemenfelderComponent implements OnInit, OnDestroy {
   themenfelder: Subject<Themenfeld[]> = new Subject<Themenfeld[]>();
 
   ngOnDestroy(): void {
-    this.subscriptionKategorie.unsubscribe();
-    this.subscriptionThemenfeld.unsubscribe();
+    if (this.subscriptionKategorie) {
+      this.subscriptionKategorie.unsubscribe();
+    }
+    if (this.subscriptionThemenfeld) {
+      this.subscriptionThemenfeld.unsubscribe();
+    }
   }
 
-  constructor(private navigationService: NavigationServiceService) {
+  constructor(navigationService: NavigationServiceService) {
 
     this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));

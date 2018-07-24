@@ -16,7 +16,9 @@ export class KategorieComponent implements OnInit, OnDestroy {
   @Input() public kategorie: Kategorie;
 
   ngOnDestroy(): void {
-    this.kategorieSubscription.unsubscribe();
+    if (this.kategorieSubscription) {
+      this.kategorieSubscription.unsubscribe();
+    }
   }
 
   constructor(private navigationService: NavigationServiceService) {
