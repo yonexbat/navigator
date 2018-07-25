@@ -13,6 +13,8 @@ import {PageContext} from '../model/PageContext';
 })
 export class BoxesComponent implements OnInit, IInitializePage {
 
+  public boxes: Box[];
+  constructor() { }
 
   initializePage(pageContext: PageContext) {
     const boxes = <Boxes>pageContext.lastDataItem();
@@ -22,10 +24,4 @@ export class BoxesComponent implements OnInit, IInitializePage {
   ngOnInit(): void {
 
   }
-
-  public boxes: Box[];
-
-
-
-  constructor() { }
 }

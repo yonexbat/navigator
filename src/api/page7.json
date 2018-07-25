@@ -1,0 +1,33 @@
+{
+    "pageId" : 7,
+    "containers" : [
+        {
+            "id" : "200",
+            "title" : "Verkäufe Poststelle Postparc",
+            "controltype"  : "text",
+            "controldata" : {
+                "text" : "Geschäft mit Woodo läuft"
+            }  
+        }, 
+        {
+            "id" : "100",
+            "title" : "Verkäufe gegeüber Vorjahr",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "Jan 403%"},
+                    {"value" : "Feb 404%"}
+                ]
+            }
+        },
+        
+        {
+            "id" : "200",
+            "title" : "Viele Aktionen im Juli",
+            "controltype"  : "text",
+            "controldata" : {
+                "text" : "Metallschneider zum halben Preis. We use cookies and other tracking technologies to improve your browsing experience on our site, show personalized content and targeted ads, analyze site traffic, and understand where our audience is coming from. To find out more or to opt-out, please read our Cookie Policy. In addition, please read our Privacy Policy, which has also been updated and became effective May 23rd, 2018.                By choosing I Accept, you consent to our use of cookies and other tracking technologies."
+            }  
+        } 
+    ]
+}

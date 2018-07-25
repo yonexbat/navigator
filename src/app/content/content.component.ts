@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {Subscription} from 'rxjs';
 
@@ -11,6 +11,7 @@ import {ContentHostDirective} from '../content-host.directive';
 import {ContainerComponent} from '../container/container.component';
 import {PageContext} from '../model/PageContext';
 import {IInitializePage} from '../model/IInitializePage';
+import { NavigatorContainer } from '../model/NavigatorContainer';
 
 @Component({
   selector: 'app-content',
@@ -22,8 +23,6 @@ export class ContentComponent implements OnInit, OnDestroy {
   private subscriptionKategorie: Subscription;
 
   private subscriptionThemenfeld: Subscription;
-
-  private counter = 1;
 
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
@@ -45,7 +44,9 @@ export class ContentComponent implements OnInit, OnDestroy {
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
-        .subscribe((themenfeld: Themenfeld) => {this.themenfeldChanged(themenfeld)});
+        .subscribe((themenfeld: Themenfeld) => {
+          this.themenfeldChanged(themenfeld);
+        });
 
       this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
         const id = params.get('id');
@@ -57,11 +58,10 @@ export class ContentComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
-  private handleRouteChanged(id: number) {
+  private async handleRouteChanged(id: number) {
     if (id > 0) {
-
-      this.conentService.getPage(id)
-      .then((page: Page) => {this.setPage(page); });
+      const page = await this.conentService.getPage(id);
+      this.setPage(page);
      }
   }
 
@@ -80,6 +80,8 @@ export class ContentComponent implements OnInit, OnDestroy {
     const containerFactory = this.componentFactoryResolver.resolveComponentFactory(ContainerComponent);
 
     const viewContainerRef = this.containerHost.viewContainerRef;
+
+    // Alle Container löschen
     viewContainerRef.clear();
 
     const pageContex = new PageContext();
@@ -88,12 +90,19 @@ export class ContentComponent implements OnInit, OnDestroy {
     pageContex.data.push(page);
 
     page.containers.forEach(element => {
+      this.addContainerComponent(containerFactory, viewContainerRef, element, pageContex);
+    });
+  }
+
+  private addContainerComponent(containerFactory: ComponentFactory<ContainerComponent>,
+    viewContainerRef: ViewContainerRef,
+    navigatorContainerData: NavigatorContainer,
+    pageContex: PageContext) {
 
       const componentRef = viewContainerRef.createComponent(containerFactory);
-      pageContex.data.push(element);
+      pageContex.data.push(navigatorContainerData);
       (<IInitializePage>componentRef.instance).initializePage(pageContex);
       pageContex.data.pop();
-    });
   }
 
 

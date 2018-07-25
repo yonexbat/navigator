@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy,  ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild } from '@angular/core';
 
 import {IInitializePage} from '../model/IInitializePage';
 import {PageContext} from '../model/PageContext';
@@ -17,23 +17,23 @@ import {TableComponent} from '../table/table.component';
 export class ContainerComponent implements OnInit, IInitializePage {
 
   title: string;
-  pageId: number = 1;
-  elementId: number = 101;
+  pageId  = 1;
+  elementId = 101;
   pageContext: PageContext;
-  
+
 
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
   initializePage(pageContext: PageContext) {
 
     this.pageContext = pageContext;
-    
-    const container: NavigatorContainer = <NavigatorContainer>pageContext.lastDataItem(); 
-    this.pageContext.elementId = container.id;    
-    this.title = container.title;
+
+    const containerData: NavigatorContainer = <NavigatorContainer>pageContext.lastDataItem();
+    this.pageContext.elementId = containerData.id;
+    this.title = containerData.title;
     this.pageId = pageContext.pageId;
     this.elementId = pageContext.elementId;
-    pageContext.createControl(container, this.containerHost);
+    pageContext.createControl(containerData, this.containerHost);
 
   }
 

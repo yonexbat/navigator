@@ -4,6 +4,7 @@ import {ContentHostDirective} from '../content-host.directive';
 import {IInitializePage} from '../model/IInitializePage';
 import {BoxesComponent} from '../boxes/boxes.component';
 import {TableComponent} from '../table/table.component';
+import { TextViewComponent } from '../text-view/text-view.component';
 
 
 
@@ -28,16 +29,23 @@ export class PageContext {
             case 'table':
                 this.initializeControl(navigationContainer.controldata, hostDirecive, TableComponent);
                 break;
+            case 'text':
+                this.initializeControl(navigationContainer.controldata, hostDirecive, TextViewComponent);
+                break;
         }
     }
 
     private initializeControl(controldata: any, hostDirecive: ContentHostDirective, type:  any) {
          const elementFactory = this.componentFactoryResolver.resolveComponentFactory(type);
-         this.data.push(controldata);
 
-         const viewContainerRef = hostDirecive.viewContainerRef;
+        this.data.push(controldata);
+        const viewContainerRef = hostDirecive.viewContainerRef;
+
+         // Remove all controls
          viewContainerRef.clear();
             const componentRef = viewContainerRef.createComponent(elementFactory);
+
+        // initialize the created control
         (<IInitializePage>componentRef.instance).initializePage(this);
 
          this.data.pop();

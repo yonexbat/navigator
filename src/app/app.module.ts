@@ -19,6 +19,7 @@ import { BoxesComponent } from './boxes/boxes.component';
 import { TableComponent } from './table/table.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import { PathComponent } from './path/path.component';
+import { TextViewComponent } from './text-view/text-view.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PathComponent } from './path/path.component';
     TableComponent,
     ZoomComponent,
     PathComponent,
+    TextViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,6 @@ import { PathComponent } from './path/path.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ContainerComponent, BoxesComponent, TableComponent]
+  entryComponents: [ContainerComponent, BoxesComponent, TableComponent, TextViewComponent]
 })
 export class AppModule { }

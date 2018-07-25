@@ -3,14 +3,14 @@
     "containers" : [
         {
             "id" : "100",
-            "title" : "Green IT",
+            "title" : "Cloud",
             "controltype"  : "boxes",
             "controldata" : {
                 "boxes" : [
                     {"value" : "Jan 103%"},
                     {"value" : "Feb 88%"},
                     {"value" : "Mrz 86%"},
-                    {"value" : "Apr 85%"}     
+                    {"value" : "Apr 22%"}     
                 ]
             }
         },

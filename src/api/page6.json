@@ -1,0 +1,37 @@
+{
+    "pageId" : 6,
+    "containers" : [
+        {
+            "id" : "200",
+            "title" : "Verkäufe Poststelle Zollikofen",
+            "controltype"  : "text",
+            "controldata" : {
+                "text" : "Heute schon drei Briefmarken verkauft"
+            }  
+        }, 
+        {
+            "id" : "100",
+            "title" : "Verkäufe gegeüber Vorjahr",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "Jan 103%"},
+                    {"value" : "Feb 88%"},
+                    {"value" : "Mrz 86%"},
+                    {"value" : "Apr 22%"},
+                    {"value" : "Mai 22%"},   
+                    {"value" : "Jun 11%"}         
+                ]
+            }
+        },
+        
+        {
+            "id" : "200",
+            "title" : "Viele Aktionen im Juli",
+            "controltype"  : "text",
+            "controldata" : {
+                "text" : "Schlauchboote zu guten Preis"
+            }  
+        } 
+    ]
+}
