@@ -1,5 +1,5 @@
  <!-- Themenfelder -->
-<div class="navigatorthemenfelder" [@heroState]='state'>
+<div class="navigatorthemenfelder" [@themenfeldTrigger]='state'>
 
   <app-themenfeld *ngFor="let themenfeld of themenfelder | async" [themenfeld]="themenfeld"></app-themenfeld>
 

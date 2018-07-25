@@ -12,7 +12,7 @@ import {Themenfeld} from '../model/Themenfeld';
   templateUrl: './themenfelder.component.html',
   styleUrls: ['./themenfelder.component.css'],
   animations: [
-    trigger('heroState', [
+    trigger('themenfeldTrigger', [
       state('inactive', style({
         backgroundColor: '#eee',
         width: '0px',
