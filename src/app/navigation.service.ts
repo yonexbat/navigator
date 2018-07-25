@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject }    from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { Kategorie } from './model/Kategorie';
-import {Themenfeld} from './model/Themenfeld'
+import {Themenfeld} from './model/Themenfeld';
 
 @Injectable()
-export class NavigationServiceService {
+export class NavigationService {
 
   constructor() { }
 
@@ -20,9 +20,8 @@ export class NavigationServiceService {
     this.selectedKategorieSub.next(kategorie);
   }
 
-  public selectThemenfeld(themenfeld: Themenfeld)
-  {
+  public selectThemenfeld(themenfeld: Themenfeld) {
     this.selectThemenfeldSub.next(themenfeld);
   }
-  
+
 }

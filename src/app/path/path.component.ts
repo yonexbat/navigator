@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
-
-import { NavigationServiceService } from '../navigation-service.service';
+import { Subscription } from 'rxjs';
+import { NavigationService } from '../navigation.service';
 import {Kategorie} from '../model/Kategorie';
 import {Themenfeld} from '../model/Themenfeld';
 
@@ -22,21 +19,21 @@ export class PathComponent implements OnInit {
   public kategorieName: string;
   public themenfeldName: string;
 
-  constructor(private navigationService: NavigationServiceService) { 
+  constructor(private navigationService: NavigationService) {
      this.subscriptionKategorie = navigationService.selectedKategoryObs
-      .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+      .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
-        .subscribe((themenfeld) => {this.themenfeldChanged(themenfeld)});
+        .subscribe((themenfeld) => {
+          this.themenfeldChanged(themenfeld);
+        });
   }
 
-  private kategorieChanged(kategorie: Kategorie)
-  {
-    this.kategorieName = kategorie.name;     
+  private kategorieChanged(kategorie: Kategorie) {
+    this.kategorieName = kategorie.name;
   }
 
-  private themenfeldChanged(themenfeld: Themenfeld)
-  {
+  private themenfeldChanged(themenfeld: Themenfeld) {
     this.themenfeldName = themenfeld.name;
   }
 

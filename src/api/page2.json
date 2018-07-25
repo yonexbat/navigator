@@ -1,0 +1,14 @@
+{
+    "pageId" : 2,
+    "containers" : [
+        {
+            "id" : "200",
+            "title" : "Konzern",
+            "controltype"  : "text",
+            "controldata" : {
+                "text" : "Dem Konzern geht es glänzend. Dank Postauto sogar im ÖV gewinn erzielt!"
+            }  
+        }
+
+    ]
+}

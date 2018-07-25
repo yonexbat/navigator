@@ -1,0 +1,27 @@
+{
+    "kategorien" : [
+        {
+            "name" : "IT Projekte",            
+            "themenfelder" : [
+                {"name" : "Green IT", "id" : 1},
+                {"name" : "Cloud", "id" : 3},
+                {"name" : "Sharepoint", "id" : 4}                          
+            ]
+        },
+        {
+             "name" : "Finanzen", 
+             "isnew": true,
+             "themenfelder" : [
+                {"name" : "Konzern", "id" : 2},
+                {"name" : "PF", "id" : 5}
+            ]    
+        },
+        {
+             "name" : "Verkauf",
+              "themenfelder" : [
+                {"name" : "Poststelle Zollikofen", "id" : 6},
+                {"name" : "Post Parc", "id" : 7}               
+            ]           
+        }
+    ]
+}

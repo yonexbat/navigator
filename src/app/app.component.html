@@ -1,21 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="navigator">
+
   <div class="navigatorheader">
     <h1>Navigator</h1>
   </div>
 
-  <!-- Kategorien -->
-  <app-kategorien></app-kategorien> 
+  <div class="flexcontainer">
 
+    <!-- Kategorien -->
+    <div class="flexmenuleft">
+      <app-kategorien></app-kategorien> 
+    </div>
 
-  <!-- Path -->
-  <app-path></app-path>
+    <div class="flexcontent">
+      
+      <!-- Path -->
+      <app-path></app-path>
 
-  <!-- Themenfelder -->
-  <app-themenfelder></app-themenfelder>
+      <!-- Themenfelder -->
+      <app-themenfelder></app-themenfelder>
 
-  <!-- Content -->
-  <router-outlet></router-outlet>
+      <!-- Content -->
+      <router-outlet></router-outlet>
+    </div>
+  
+  </div>
 
 </div>
 

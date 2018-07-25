@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import {Subscription} from 'rxjs';
 
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService  } from '../navigator-data.service';
 import {Kategorie} from '../model/Kategorie';
 import {Themenfeld} from '../model/Themenfeld';
@@ -13,6 +11,7 @@ import {ContentHostDirective} from '../content-host.directive';
 import {ContainerComponent} from '../container/container.component';
 import {PageContext} from '../model/PageContext';
 import {IInitializePage} from '../model/IInitializePage';
+import { NavigatorContainer } from '../model/NavigatorContainer';
 
 @Component({
   selector: 'app-content',
@@ -21,89 +20,89 @@ import {IInitializePage} from '../model/IInitializePage';
 })
 export class ContentComponent implements OnInit, OnDestroy {
 
-  ngOnDestroy(): void {
-    if(this.subscriptionKategorie != null)
-    {
-      this.subscriptionKategorie.unsubscribe();
-    }
-    if(this.subscriptionThemenfeld != null)
-    {
-      this.subscriptionThemenfeld.unsubscribe();
-    }
-  }
-
   private subscriptionKategorie: Subscription;
 
   private subscriptionThemenfeld: Subscription;
 
-  private counter: number = 1;
-
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
-  constructor(private navigationService: NavigationServiceService, 
-              private conentService: NavigatorDataService,  
+  ngOnDestroy(): void {
+    if (this.subscriptionKategorie != null) {
+      this.subscriptionKategorie.unsubscribe();
+    }
+    if (this.subscriptionThemenfeld != null) {
+      this.subscriptionThemenfeld.unsubscribe();
+    }
+  }
+
+  constructor(private navigationService: NavigationService,
+              private conentService: NavigatorDataService,
               private activeRoute: ActivatedRoute,
-              private componentFactoryResolver: ComponentFactoryResolver) { 
+              private componentFactoryResolver: ComponentFactoryResolver) {
 
       this.subscriptionKategorie = navigationService.selectedKategoryObs
-      .subscribe((kategorie : Kategorie) => this.kategorieChanged(kategorie));
+      .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
       this.subscriptionKategorie = navigationService.selectedThemenfeldBs
-        .subscribe((themenfeld) => {this.themenfeldChanged(themenfeld)});
+        .subscribe((themenfeld: Themenfeld) => {
+          this.themenfeldChanged(themenfeld);
+        });
 
       this.activeRoute.paramMap.subscribe((params: ParamMap)  => {
-        let id = params.get("id"); 
+        const id = params.get('id');
         this.handleRouteChanged(+id);
       }
-    )
+    );
   }
 
   ngOnInit() {
   }
 
-  private handleRouteChanged(id: number)
-  {
-    if(id > 0)
-    {
-
-      this.conentService.getPage(id)
-      .then((page: Page) => {this.setPage(page);});
+  private async handleRouteChanged(id: number) {
+    if (id > 0) {
+      const page = await this.conentService.getPage(id);
+      this.setPage(page);
      }
   }
 
 
-  private kategorieChanged(kategorie: Kategorie)
-  {
-        
+  private kategorieChanged(kategorie: Kategorie) {
   }
 
-  private themenfeldChanged(themenfeld: Themenfeld)
-  {
-   
+  private themenfeldChanged(themenfeld: Themenfeld) {
+
   }
 
 
 
-  private setPage(page: Page) : void {
+  private setPage(page: Page): void {
 
-    let containerFactory = this.componentFactoryResolver.resolveComponentFactory(ContainerComponent);
+    const containerFactory = this.componentFactoryResolver.resolveComponentFactory(ContainerComponent);
 
-    let viewContainerRef = this.containerHost.viewContainerRef;
+    const viewContainerRef = this.containerHost.viewContainerRef;
+
+    // Alle Container löschen
     viewContainerRef.clear();
 
-    let pageContex = new PageContext(); 
+    const pageContex = new PageContext();
     pageContex.componentFactoryResolver = this.componentFactoryResolver;
     pageContex.pageId = page.pageId;
-    pageContex.data.push(page);   
+    pageContex.data.push(page);
 
     page.containers.forEach(element => {
-      
-      let componentRef = viewContainerRef.createComponent(containerFactory);  
-      pageContex.data.push(element);
+      this.addContainerComponent(containerFactory, viewContainerRef, element, pageContex);
+    });
+  }
+
+  private addContainerComponent(containerFactory: ComponentFactory<ContainerComponent>,
+    viewContainerRef: ViewContainerRef,
+    navigatorContainerData: NavigatorContainer,
+    pageContex: PageContext) {
+
+      const componentRef = viewContainerRef.createComponent(containerFactory);
+      pageContex.data.push(navigatorContainerData);
       (<IInitializePage>componentRef.instance).initializePage(pageContex);
       pageContex.data.pop();
-    });      
-    
   }
 
 

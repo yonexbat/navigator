@@ -1,22 +1,26 @@
 .navigatorkategorie {
-    height: 150px;
+    height: 140px;
     text-align: center;
     border: 1px; 
     border-style: solid;
     border-color: black;
     margin: 1px;
+    padding-top: 10px;
     position: relative;
+    color: white;
 }
 
 .navigatorkategorie:hover { 
-    background-color: yellow;
+    background-color: #ffd30fd7;
+    color: black;
 }
 
-#overlay{
+#overlay {
     width:150px;
     height: 150px;
     position:absolute; 
     left:0;
     top:0; 
-    z-index: 999;
+    z-index: 5;
+    opacity: 0.6;
 }

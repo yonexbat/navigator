@@ -1,0 +1,64 @@
+{
+    "pageId" : 1,
+    "containers" : [
+        {
+            "id" : "100",
+            "title" : "Sharepoint",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "Jan 103%"},
+                    {"value" : "Feb 88%"},
+                    {"value" : "Mrz 86%"},
+                    {"value" : "Apr 85%"},
+                    {"value" : "Mai 85%"},     
+                    {"value" : "Jun 85%"}     
+                ]
+            }
+        },
+        {
+            "id" : "100",
+            "title" : "Sharepoint Light",
+            "controltype"  : "boxes",
+            "controldata" : {
+                "boxes" : [
+                    {"value" : "Jan 103%"},
+                    {"value" : "Feb 88%"},
+                    {"value" : "Mrz 86%"},
+                    {"value" : "Apr 85%"},
+                    {"value" : "Mai 85%"},     
+                    {"value" : "Jun 85%"}     
+                ]
+            }
+        },
+        {
+            "id" : "101",
+            "title" : "Standorte",
+            "controltype" : "table",
+            "controldata" : {
+                "columns" : [
+                    {"title" : "Standort"},
+                    {"title" : "kWh"},
+                    {"title" : "%"}
+                ],
+                "rows" : [
+                    {
+                        "cells" : [
+                            {"value" : "Engehalde"},
+                            {"value" : "123"},
+                            {"value" : "10%"}
+                        ]
+                    },
+                     {
+                        "cells" : [
+                            {"value" : "Härkingen"},
+                            {"value" : "199"},
+                            {"value" : "4%"}
+                        ]
+                    }
+                ]
+                
+            }
+        }
+    ]
+}
