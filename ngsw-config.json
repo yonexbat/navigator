@@ -25,12 +25,10 @@
     {
     "name": "webapi",
       "urls": [
-        "/api/navigation.json",
-        "/api/page1.json",
-        "/api/page2.json"
+        "/api/*.json"
       ],
       "cacheConfig": {
-        "strategy": "performance",
+        "strategy": "freshness",
         "maxSize": 100,
         "maxAge": "3d"
       }
