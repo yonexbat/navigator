@@ -1,10 +1,8 @@
 .navigatorzoom {
-    background: white;  
-    margin-left: 150px;
+    background: rgb(255, 228, 196);  
 }
 
 .navigatorzoomcontent {
-    overflow: auto;
     height: 800px;
     margin: 30px;
 }

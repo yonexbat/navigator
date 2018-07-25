@@ -48,6 +48,7 @@ export class ZoomComponent implements OnInit {
 
 
    private setPage(page: Page, elementId: number): void {
+
       const container: NavigatorContainer = this.getElementId(page, elementId);
 
       const pageContex = new PageContext();
@@ -58,7 +59,7 @@ export class ZoomComponent implements OnInit {
    private getElementId(page: Page, elementId: number): NavigatorContainer {
     for (let i = 0; i < page.containers.length; i++) {
       const container = page.containers[i];
-      if (container.id === elementId) {
+      if (container.id.toString() === elementId.toString()) {
         return container;
       }
     }
