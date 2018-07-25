@@ -12,3 +12,20 @@
 {
     
 }
+
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexmenuleft {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 150px;
+}
+
+.flexcontent {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+}
