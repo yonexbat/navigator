@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ThemenfelderComponent } from './themenfelder.component';
 import {ThemenfeldComponent} from '../themenfeld/themenfeld.component';
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
@@ -30,7 +30,7 @@ describe('ThemenfelderComponent', () => {
       imports: [BrowserAnimationsModule],
       declarations: [ ThemenfelderComponent, ThemenfeldComponent ],
       providers: [
-        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigationService, useValue: navigationServiceSpy},
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy},
       ],
     })

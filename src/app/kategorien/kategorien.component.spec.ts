@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 
 import { KategorienComponent } from './kategorien.component';
 import { KategorieComponent } from '../kategorie/kategorie.component';
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
@@ -33,7 +33,7 @@ describe('KategorienComponent', () => {
       declarations: [ KategorienComponent, KategorieComponent ],
       providers: [
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy },
-        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigationService, useValue: navigationServiceSpy},
       ],
     })
     .compileComponents();

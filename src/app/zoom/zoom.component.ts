@@ -1,7 +1,7 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService  } from '../navigator-data.service';
 import {Page} from '../model/Page';
 import {ContentHostDirective} from '../content-host.directive';
@@ -19,7 +19,7 @@ export class ZoomComponent implements OnInit {
 
   @ViewChild(ContentHostDirective) containerHost: ContentHostDirective;
 
-  constructor(private navigationService: NavigationServiceService,
+  constructor(private navigationService: NavigationService,
               private conentService: NavigatorDataService,
               private activeRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {

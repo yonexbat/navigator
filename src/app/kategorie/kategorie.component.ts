@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input  } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import {NavigationServiceService} from '../navigation-service.service';
+import {NavigationService} from '../navigation.service';
 import {Kategorie} from '../model/Kategorie';
 
 @Component({
@@ -21,7 +21,7 @@ export class KategorieComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private navigationService: NavigationServiceService) {
+  constructor(private navigationService: NavigationService) {
     this.kategorieSubscription = navigationService.selectedKategoryObs.subscribe(
       kategorie => this.kategorieSelected(kategorie)
     );

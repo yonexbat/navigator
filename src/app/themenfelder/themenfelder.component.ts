@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
 import {trigger, state, style, animate, transition} from '@angular/animations';
 
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import {Kategorie} from '../model/Kategorie';
 import {Themenfeld} from '../model/Themenfeld';
 
@@ -44,7 +44,7 @@ export class ThemenfelderComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(navigationService: NavigationServiceService) {
+  constructor(navigationService: NavigationService) {
 
     this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import {Themenfeld} from '../model/Themenfeld';
-import {NavigationServiceService} from '../navigation-service.service';
+import {NavigationService} from '../navigation.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ThemenfeldComponent implements OnInit {
 
 
-  constructor(private navigationService: NavigationServiceService, private router: Router) {
+  constructor(private navigationService: NavigationService, private router: Router) {
 
    }
 

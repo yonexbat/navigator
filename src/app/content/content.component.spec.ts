@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of, Subscription} from 'rxjs';
 
 import { ContentComponent } from './content.component';
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
@@ -29,7 +29,7 @@ describe('ContentComponent', () => {
       imports: [RouterTestingModule],
       declarations: [ ContentComponent ],
       providers: [
-        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigationService, useValue: navigationServiceSpy},
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy},
       ],
     })

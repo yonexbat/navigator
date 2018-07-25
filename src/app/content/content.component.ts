@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy,  ComponentFactoryResolver, ViewChild, Vie
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {Subscription} from 'rxjs';
 
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService  } from '../navigator-data.service';
 import {Kategorie} from '../model/Kategorie';
 import {Themenfeld} from '../model/Themenfeld';
@@ -35,7 +35,7 @@ export class ContentComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private navigationService: NavigationServiceService,
+  constructor(private navigationService: NavigationService,
               private conentService: NavigatorDataService,
               private activeRoute: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { PathComponent } from './path.component';
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
@@ -20,7 +20,7 @@ describe('PathComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PathComponent ],
       providers: [
-        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigationService, useValue: navigationServiceSpy},
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy},
       ]
     })

@@ -4,7 +4,7 @@ import { Kategorie } from './model/Kategorie';
 import {Themenfeld} from './model/Themenfeld';
 
 @Injectable()
-export class NavigationServiceService {
+export class NavigationService {
 
   constructor() { }
 

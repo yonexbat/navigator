@@ -1,7 +1,7 @@
 import { ComponentFactoryResolver, Type } from '@angular/core';
-import {NavigatorContainer} from '../model/NavigatorContainer';
+import {NavigatorContainer} from './NavigatorContainer';
 import {ContentHostDirective} from '../content-host.directive';
-import {IInitializePage} from '../model/IInitializePage';
+import {IInitializePage} from './IInitializePage';
 import {BoxesComponent} from '../boxes/boxes.component';
 import {TableComponent} from '../table/table.component';
 import { TextViewComponent } from '../text-view/text-view.component';

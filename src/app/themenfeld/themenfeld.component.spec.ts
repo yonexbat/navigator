@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ThemenfeldComponent } from './themenfeld.component';
-import { NavigationServiceService } from '../navigation-service.service';
+import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
@@ -24,7 +24,7 @@ describe('ThemenfeldComponent', () => {
       imports: [RouterTestingModule],
       declarations: [ ThemenfeldComponent ],
       providers: [
-        {provide: NavigationServiceService, useValue: navigationServiceSpy},
+        {provide: NavigationService, useValue: navigationServiceSpy},
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy},
       ],
     })
