@@ -1,13 +1,12 @@
 {
     "kategorien" : [
         {
-            "name" : "Projekte",            
+            "name" : "IT Projekte",            
             "themenfelder" : [
-                {"name" : "Projet1", "id" : 1},
-                {"name" : "Projet2", "id" : 2},
-                {"name" : "Projet3", "id" : 1},
-                {"name" : "Navigator Projekt", "id" : 2},
-                {"name" : "Not Navigator Projekt", "id" : 1}
+                {"name" : "Green IT", "id" : 1},
+                {"name" : "Cloud", "id" : 2},
+                {"name" : "Sharepoint", "id" : 1},
+                {"name" : "Autopilot", "id" : 2}                
             ]
         },
         {
@@ -26,15 +25,6 @@
                 {"name" : "Verkauf2", "id" : 2},
                 {"name" : "Verkauf3", "id" : 1}
             ]           
-        },
-        {
-            "name" : "Claude",
-            "isnew": true,
-            "themenfelder" : [
-                {"name" : "Claude1", "id" : 2},
-                {"name" : "Claude2", "id" : 1},
-                {"name" : "Claude3", "id" : 2}
-            ]    
-        }  
+        }
     ]
 }

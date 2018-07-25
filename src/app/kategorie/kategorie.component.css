@@ -6,17 +6,20 @@
     border-color: black;
     margin: 1px;
     position: relative;
+    color: white;
 }
 
 .navigatorkategorie:hover { 
-    background-color: yellow;
+    background-color: #ffd30fd7;
+    color: black;
 }
 
-#overlay{
+#overlay {
     width:150px;
     height: 150px;
     position:absolute; 
     left:0;
     top:0; 
     z-index: 999;
+    opacity: 0.6;
 }
