@@ -5,6 +5,7 @@ import { KategorienComponent } from './kategorien.component';
 import { KategorieComponent } from '../kategorie/kategorie.component';
 import { NavigationService } from '../navigation.service';
 import { NavigatorDataService} from '../navigator-data.service';
+import { DownloaderService } from '../downloader.service';
 import { Kategorie } from '../model/Kategorie';
 import { Themenfeld } from '../model/Themenfeld';
 import { Navigator } from '../model/Navigator';
@@ -16,13 +17,15 @@ describe('KategorienComponent', () => {
   beforeEach(async(() => {
     const navigationServiceSpy = {
       selectedKategoryObs: of(new Kategorie()),
-      selectedThemenfeldBs: of(new Themenfeld()),
+      selectedThemenfeldObs: of(new Themenfeld()),
+      reloadObs: of(new Themenfeld()),
+      reload() {}
     };
 
     const navigator = new Navigator();
-    /*
-    const navigatorDataserviceSpy: any = jasmine.createSpyObj('NavigatorDataService', ['getIndex']);
-    navigatorDataserviceSpy.getIndex.and.returnValue( of(navigator) );*/
+    const downloaderServiceSpy = {
+      downloadAllPages() {}
+    };
     const navigatorDataserviceSpy = {
       getIndex() {
         return Promise.resolve(navigator);
@@ -34,6 +37,7 @@ describe('KategorienComponent', () => {
       providers: [
         {provide: NavigatorDataService, useValue: navigatorDataserviceSpy },
         {provide: NavigationService, useValue: navigationServiceSpy},
+        {provide: DownloaderService, useValue: downloaderServiceSpy},
       ],
     })
     .compileComponents();

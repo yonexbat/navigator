@@ -18,10 +18,10 @@ describe('ThemenfelderComponent', () => {
 
     const navigationServiceSpy = {
       selectedKategoryObs: of(new Kategorie()),
-      selectedThemenfeldBs: of(new Themenfeld()),
+      selectedThemenfeldObs: of(new Themenfeld()),
     };
     subSpy1 = spyOn(navigationServiceSpy.selectedKategoryObs, 'subscribe');
-    subSpy2 = spyOn(navigationServiceSpy.selectedThemenfeldBs, 'subscribe');
+    subSpy2 = spyOn(navigationServiceSpy.selectedThemenfeldObs, 'subscribe');
 
     const navigatorDataserviceSpy = jasmine.createSpyObj('NavigatorDataService', ['ba']);
 

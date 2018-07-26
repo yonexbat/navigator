@@ -10,8 +10,6 @@ import { Themenfeld } from '../model/Themenfeld';
 describe('KategorieComponent', () => {
   let component: KategorieComponent;
   let fixture: ComponentFixture<KategorieComponent>;
-  let subSpy1;
-  let subSpy2;
 
   beforeEach(async(() => {
 
@@ -19,8 +17,6 @@ describe('KategorieComponent', () => {
       selectedKategoryObs: of(new Kategorie()),
       selectedThemenfeldBs: of(new Themenfeld()),
     };
-    subSpy1 = spyOn(navigationServiceSpy.selectedKategoryObs, 'subscribe');
-    subSpy2 = spyOn(navigationServiceSpy.selectedThemenfeldBs, 'subscribe');
 
     const navigatorDataserviceSpy = jasmine.createSpyObj('NavigatorDataService', ['ba']);
 

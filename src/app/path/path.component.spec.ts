@@ -14,7 +14,10 @@ describe('PathComponent', () => {
   beforeEach(async(() => {
     const navigationServiceSpy = {
       selectedKategoryObs: of(new Kategorie()),
-      selectedThemenfeldBs: of(new Themenfeld()),
+      selectedThemenfeldObs: of(new Themenfeld()),
+      onlineObs: of(true),
+      generalMessgeObs: of('hello'),
+      isOnline() {return true; }
     };
     const navigatorDataserviceSpy = jasmine.createSpyObj('NavigatorDataService', ['ba']);
     TestBed.configureTestingModule({
