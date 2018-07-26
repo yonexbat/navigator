@@ -23,7 +23,7 @@ export class PathComponent implements OnInit {
      this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
-      this.subscriptionKategorie = navigationService.selectedThemenfeldBs
+      this.subscriptionKategorie = navigationService.selectedThemenfeldObs
         .subscribe((themenfeld) => {
           this.themenfeldChanged(themenfeld);
         });

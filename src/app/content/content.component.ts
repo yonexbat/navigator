@@ -43,7 +43,7 @@ export class ContentComponent implements OnInit, OnDestroy {
       this.subscriptionKategorie = navigationService.selectedKategoryObs
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
 
-      this.subscriptionKategorie = navigationService.selectedThemenfeldBs
+      this.subscriptionThemenfeld = navigationService.selectedThemenfeldObs
         .subscribe((themenfeld: Themenfeld) => {
           this.themenfeldChanged(themenfeld);
         });

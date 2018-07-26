@@ -1,27 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Kategorie } from './model/Kategorie';
-import {Themenfeld} from './model/Themenfeld';
+import { Themenfeld } from './model/Themenfeld';
 
 @Injectable()
 export class NavigationService {
 
   constructor() { }
 
-  private selectedKategorieSub = new Subject<Kategorie>();
 
-  public selectedKategoryObs = this.selectedKategorieSub.asObservable();
+  public selectedKategoryObs = new Subject<Kategorie>();
+  public selectedThemenfeldObs = new Subject<Themenfeld>();
+  public generalMessgeObs = new Subject<string>();
 
-  private selectThemenfeldSub = new Subject<Themenfeld>();
-
-  public selectedThemenfeldBs = this.selectThemenfeldSub.asObservable();
 
   public selectCategory(kategorie: Kategorie) {
-    this.selectedKategorieSub.next(kategorie);
+    this.selectedKategoryObs.next(kategorie);
   }
 
   public selectThemenfeld(themenfeld: Themenfeld) {
-    this.selectThemenfeldSub.next(themenfeld);
+    this.selectedThemenfeldObs.next(themenfeld);
+  }
+
+  public sendMessage(message: string) {
+    this.generalMessgeObs.next(message);
   }
 
 }

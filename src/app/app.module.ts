@@ -20,6 +20,7 @@ import { TableComponent } from './table/table.component';
 import { ZoomComponent } from './zoom/zoom.component';
 import { PathComponent } from './path/path.component';
 import { TextViewComponent } from './text-view/text-view.component';
+import { ActionsComponent } from './actions/actions.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { TextViewComponent } from './text-view/text-view.component';
     ZoomComponent,
     PathComponent,
     TextViewComponent,
+    ActionsComponent,
   ],
   imports: [
     BrowserModule,
