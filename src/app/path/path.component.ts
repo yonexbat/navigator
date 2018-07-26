@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NavigationService } from '../navigation.service';
 import {Kategorie} from '../model/Kategorie';
@@ -9,7 +9,7 @@ import {Themenfeld} from '../model/Themenfeld';
   templateUrl: './path.component.html',
   styleUrls: ['./path.component.css']
 })
-export class PathComponent implements OnInit {
+export class PathComponent implements OnInit, OnDestroy {
 
 
   private subscriptionKategorie: Subscription;
@@ -38,6 +38,15 @@ export class PathComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    if (this.subscriptionKategorie) {
+      this.subscriptionKategorie.unsubscribe();
+    }
+    if (this.subscriptionThemenfeld) {
+      this.subscriptionThemenfeld.unsubscribe();
+    }
   }
 
 }
