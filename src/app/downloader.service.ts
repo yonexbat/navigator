@@ -4,17 +4,14 @@ import { NavigationService } from './navigation.service';
 import { Navigator } from './model/Navigator';
 import { Kategorie } from './model/Kategorie';
 import { Themenfeld} from './model/Themenfeld';
-import { Page } from './model/Page';
-import {of} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DownloaderService {
 
   constructor(private navigatorDataService: NavigatorDataService, private navigationService: NavigationService) {
   }
 
+  /** Daten mal herunterladen, mann könnte ja den bald offline sein  */
   public async downloadAllPages() {
     this.navigationService.sendMessage('Lade index herunter');
     const navigatorIndex: Navigator = await this.navigatorDataService.getIndex();

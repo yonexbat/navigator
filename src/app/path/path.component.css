@@ -1,7 +1,11 @@
 .navigatorpath {
-     background-color: rgb(70, 59, 24);
-     height: 30px;
-     color: white;
-     padding-left: 30px;
-     padding-top: 10px;
+    background-color: rgb(70, 59, 24);
+    color: white;
+    padding-left: 30px;
+    padding-top: 10px;
+    height: 50;
+}
+
+.info {
+    color: rgb(163, 134, 91);   
 }

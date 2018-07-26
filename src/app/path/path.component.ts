@@ -12,21 +12,37 @@ import {Themenfeld} from '../model/Themenfeld';
 export class PathComponent implements OnInit, OnDestroy {
 
 
-  private subscriptionKategorie: Subscription;
 
-  private subscriptionThemenfeld: Subscription;
+  private subscriptions: Subscription[] = [];
 
-  public kategorieName: string;
+  public kategorieName = 'Keine Kathegorie gewählt';
   public themenfeldName: string;
+  public online = 'online';
+  public message: string;
 
-  constructor(private navigationService: NavigationService) {
-     this.subscriptionKategorie = navigationService.selectedKategoryObs
+  constructor(navigationService: NavigationService) {
+      let subscription;
+      subscription = navigationService.selectedKategoryObs
       .subscribe((kategorie: Kategorie) => this.kategorieChanged(kategorie));
+      this.subscriptions.push(subscription);
 
-      this.subscriptionKategorie = navigationService.selectedThemenfeldObs
+      subscription = navigationService.selectedThemenfeldObs
         .subscribe((themenfeld) => {
           this.themenfeldChanged(themenfeld);
         });
+      this.subscriptions.push(subscription);
+
+      subscription = navigationService.onlineObs.subscribe((status: boolean) => {
+        this.onlineOffline(status);
+      });
+      this.subscriptions.push(subscription);
+
+      subscription = navigationService.generalMessgeObs.subscribe((message: string) => {
+        this.messageIncoming(message);
+      });
+      this.subscriptions.push(subscription);
+
+      this.onlineOffline(navigationService.isOnline());
   }
 
   private kategorieChanged(kategorie: Kategorie) {
@@ -37,16 +53,21 @@ export class PathComponent implements OnInit, OnDestroy {
     this.themenfeldName = themenfeld.name;
   }
 
+  private onlineOffline(status: boolean) {
+    this.online = status ? 'online' : 'offline';
+  }
+
+  private messageIncoming(message: string) {
+    this.message = message;
+  }
+
   ngOnInit() {
   }
 
   ngOnDestroy() {
-    if (this.subscriptionKategorie) {
-      this.subscriptionKategorie.unsubscribe();
-    }
-    if (this.subscriptionThemenfeld) {
-      this.subscriptionThemenfeld.unsubscribe();
-    }
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
 }
